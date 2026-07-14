@@ -32,4 +32,19 @@ async function fetchCoin(coinId) {
   return response.json();
 }
 
-module.exports = { getCoinId, getAllAddresses, fetchCoin };
+async function fetchChartData(coinId, days) {
+  const url = `${BASE_URL}/${coinId}/market_chart?vs_currency=usd&days=${days}`;
+  const response = await fetch(url, {
+    headers: { "x-cg-demo-api-key": API_KEY }
+  });
+
+  if (!response.ok) {
+    throw new Error(`CoinGecko Chart API error: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+
+
+module.exports = { getCoinId, getAllAddresses, fetchCoin, fetchChartData };

@@ -22,10 +22,10 @@ router.get('/:type/:address/:days', (req, res) => {
   const data = chartCache.getData(address, type, days);
 
   if (data) {
-    return res.json({ [days]: data });
+    return res.json(data);
   }
 
-  return res.json({ [days]: [] });
+  return res.json([]);
 });
 
 module.exports = router;

@@ -16,6 +16,10 @@ function mapToDto(raw) {
     symbol: raw.symbol ?? null,
     asset_platform_id: raw.asset_platform_id ?? null,
     market_cap_rank: raw.market_cap_rank ?? null,
+    genesis_date: raw.genesis_date ?? null,
+    last_updated: raw.last_updated ?? null,
+    block_time_in_minutes: raw.block_time_in_minutes ?? null,
+    image: raw.image ?? null,
 
     // Supply
     total_supply: market.total_supply ?? null,
@@ -28,6 +32,7 @@ function mapToDto(raw) {
 
     // Market
     market_cap: market.market_cap?.usd ?? null,
+    current_price: market.current_price?.usd ?? null,
     fully_diluted_valuation:
       market.fully_diluted_valuation?.usd ?? null,
     total_volume: market.total_volume?.usd ?? null,

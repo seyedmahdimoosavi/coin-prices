@@ -1,0 +1,17 @@
+{
+  "name": "coin-prices",
+  "version": "1.0.0",
+  "description": "get top marketcap coins from coin geko",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "mehdi-moosavi",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}

@@ -3,10 +3,19 @@ const coinsRouter = require('./routes/coins');
 const { startScheduler } = require('./services/scheduler');
 const chartsRouter = require('./routes/charts'); // جدید
 const { startChartScheduler } = require('./services/chartScheduler');
-
+const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
+app.use(cors());
 // Routes
 app.use('/api/coins', coinsRouter);
 app.use('/api/charts', chartsRouter);

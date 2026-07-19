@@ -11,7 +11,7 @@ function buildUrl(coinId) {
 }
 
 function getCoinId(address) {
-  return ADDRESS_TO_ID[address.toLowerCase()] || null;
+  return ADDRESS_TO_ID[address] || null;
 }
 
 function getAllAddresses() {

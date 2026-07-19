@@ -5,7 +5,7 @@ const chartCache = require('../services/chartCacheService');
 
 const VALID_DAYS = ['1d', '7d', '30d', '90d', '365d'];
 
-router.get('/:type/:address/:days', (req, res) => {
+router.get('/:address/:type/:days', (req, res) => {
   let { type, address, days } = req.params;
 
   address = address.toLowerCase();

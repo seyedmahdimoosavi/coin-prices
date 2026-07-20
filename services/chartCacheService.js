@@ -15,8 +15,13 @@ function setData(address, type, days, data) {
   chartCache.get(address)[type][days] = data;
 }
 
+// function getData(address, type, days) {
+//   return chartCache.get(address)?.[type]?.[days] || null;
+// }
+
 function getData(address, type, days) {
-  return chartCache.get(address)?.[type]?.[days] || null;
+  const data = chartCache.get(address)?.[type]?.[days];
+  return data ?? [];
 }
 
 module.exports = { setData, getData };

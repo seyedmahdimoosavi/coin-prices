@@ -18,6 +18,8 @@ function getAllAddresses() {
   return Object.keys(ADDRESS_TO_ID);
 }
 
+// updated fetchCoin function to include error handling and API key
+
 async function fetchCoin(coinId) {
   const response = await fetch(buildUrl(coinId), {
     headers: {

@@ -2,8 +2,8 @@ const { getAllAddresses, getCoinId, fetchChartData } = require('./coinGeckoServi
 const chartCache = require('./chartCacheService');
 
 const VALID_DAYS = ['1d', '7d', '30d', '90d', '365d'];
-const DELAY_MS = 5000;
-const REFRESH_INTERVAL_MS = 10 * 60 * 1000; // 10 minutes
+const DELAY_MS = 7000;
+const REFRESH_INTERVAL_MS = 20 * 60 * 1000; // 20 minutes
 
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));

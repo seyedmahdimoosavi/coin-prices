@@ -3,29 +3,22 @@ const router = express.Router();
 const { getCoinId } = require('../services/coinGeckoService');
 const chartCache = require('../services/chartCacheService');
 
-const VALID_DAYS = ['1d', '7d', '30d', '90d', '365d'];
+const VALID_DAYS = new Set(['1', '7', '30', '90', '365']);
+const VALID_TYPES = new Set(['prices', 'market_caps', 'total_volumes']);
 
 router.get('/:address/:type/:days', (req, res) => {
-  let { type, address, days } = req.params;
+  const { type, days } = req.params;
+  const address = req.params.address.toLowerCase();
 
-  address = address.toLowerCase();
-
-  if (!VALID_DAYS.includes(days)) {
-    days = '1d';
-  }
-
-  const coinId = getCoinId(address);
-  if (!coinId) {
+  if (!getCoinId(address)) {
     return res.status(404).json({ error: 'Address not found' });
   }
 
-  const data = chartCache.getData(address, type, days);
-
-  if (data) {
-    return res.json(data);
+  if (!VALID_TYPES.has(type) || !VALID_DAYS.has(days)) {
+    return res.status(400).json({ error: 'Invalid chart type or days' });
   }
 
-  return res.json([]);
+  return res.json(chartCache.getData(address, type, `${days}d`));
 });
 
 module.exports = router;

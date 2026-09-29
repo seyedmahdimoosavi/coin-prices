@@ -13,7 +13,7 @@ const ADDRESS_TO_ID = {
 };
 
 const BASE_URL = "https://api.coingecko.com/api/v3/coins";
-const API_KEY = process.env.COINGECKO_API_KEY || "CG-W37XBtbNNLFsENLf6drDQkCk";
+const API_KEY = process.env.COINGECKO_API_KEY || "CG-LBU7z1UfhY5zARobqdzv5WWv";
 
 function buildUrl(coinId) {
   return `${BASE_URL}/${coinId}?localization=false&tickers=false&developer_data=true`;
